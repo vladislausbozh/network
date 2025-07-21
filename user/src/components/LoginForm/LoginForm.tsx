@@ -29,8 +29,8 @@ const LoginForm = () => {
             onChange={(e)=>setPassword(e.target.value)}
          />
 
-         <button onClick = { () => loginApi(email,password)}>Войти</button>
-         <button>Зарегистрироваться</button>
+         <button >Войти</button>
+         <button onClick = { () => loginApi(email,password)}>Зарегистрироваться</button>
       </div>
    )
 }

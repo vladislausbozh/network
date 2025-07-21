@@ -4,7 +4,7 @@ const userServisce = require('../service/user-servisce');
 class UserController {
 
    async registration(req, res, next) {
-      console.log(req.body,'данные пользователя')
+      console.log(res,'данные пользователя=====================')
       try {
          const {email, password} = req.body
          const userData = await userServisce.registration(email, password)

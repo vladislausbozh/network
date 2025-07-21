@@ -9,16 +9,15 @@ class UserServise {
    async registration(email, password) {
       const candidate = await UserModel.findOne({email})
    
-      // if (candidate) {
-      //    throw new Error(`пользователь с почтовым адресом ${email} существует `)
-      // }
-      // до этого правльно, если пользователя нет candidate === null
+      if (candidate) {
+         throw new Error(`пользователь с почтовым адресом ${email} существует `)
+      }
+
 
       const hashPassword = await bcrypt.hash(password, 3);
       const activationLink = uuid.v4();  
 
       const user = await UserModel.create({email, password: hashPassword, activationLink})
-      console.log('ddddddddddddddddddddddddddddddddddd')
       await mailService.sendActivationMail(email, activationLink)
 
       const userDto = new UserDto(user)

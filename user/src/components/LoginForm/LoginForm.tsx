@@ -6,7 +6,7 @@ import { loginApi } from '../../api/AuthApi';
 const LoginForm = () => {
 
    const [email, setEmail] = useState<string>('');
-   const [password, setPassword] = useState<string>('')
+   const password, setPassword] = useState<string>('')
 
    
 
